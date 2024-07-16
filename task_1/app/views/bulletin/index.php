@@ -18,6 +18,9 @@
         .error {
             color: red;
         }
+        .success {
+            color: green;
+        }
         textarea {
             width: 100%;
             height: 100px;
@@ -50,9 +53,9 @@
 <body>
 
 <div class="container">
-    <form id="bulletinForm">
-        <div class="error" id="errorMsg">Your message must be 10 to 200 characters long</div>
-        <textarea id="messageInput" placeholder="Must be filled in"></textarea>
+    <form id="bulletinForm" action="<?= BASEURL ?>/BulletinController/add" method="POST">
+        <?php Flasher::flash(); ?>
+        <textarea id="contentInput" name="content" placeholder="Must be filled in" required></textarea>
         <button type="submit" id="submitBtn">Submit</button>
     </form>
 

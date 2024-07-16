@@ -19,10 +19,10 @@ class BulletinModel
 
     public function addBulletinMessage($bulletinData)
     {
-        $query = "INSERT INTO " . $this->tableName . " VALUES ('', :message, '')";
+        $query = "INSERT INTO " . $this->tableName . "(content) VALUES (:content)";
 
         $this->db->query($query);
-        $this->db->bind('message', $bulletinData['message']);
+        $this->db->bind('content', $bulletinData['content']);
 
         $this->db->execute();
 
