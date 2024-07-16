@@ -13,7 +13,7 @@ class BulletinModel
 
     public function getAllBulletinMessage()
     {
-        $this->db->query("SELECT * FROM " . $this->tableName);
+        $this->db->query("SELECT * FROM " . $this->tableName . " ORDER BY created_at DESC");
         return $this->db->resultSet();
     }
 

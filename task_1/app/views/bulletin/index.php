@@ -36,6 +36,7 @@
         .message {
             border-top: 1px solid #000;
             padding: 10px 0;
+            margin: 5px 0;
         }
         .message:last-child {
             border-bottom: 1px solid #000;
@@ -56,18 +57,12 @@
     </form>
 
     <div id="messages">
+        <?php foreach ($data['message'] as $message) :  ?>
         <div class="message">
-            <p>Hello World!! third</p>
-            <p class="timestamp">05-05-2014 14:05</p>
+            <p><?= $message['content']; ?></p>
+            <p class="timestamp"><?= $message['created_at'];?></p>
         </div>
-        <div class="message">
-            <p>Hello World!! second</p>
-            <p class="timestamp">05-05-2014 13:09</p>
-        </div>
-        <div class="message">
-            <p>Hello World!! first</p>
-            <p class="timestamp">03-05-2014 11:00</p>
-        </div>
+        <?php endforeach;?>
     </div>
 </div>
 
