@@ -1,5 +1,6 @@
 Options -Multiviews
 
+# Redirect any access to public folder to index.php
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
