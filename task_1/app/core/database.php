@@ -52,21 +52,30 @@ class Database{
         $this->statement->bindValue($param, $value, $type);
     }
 
-    public function execute(){
+    public function query($query)
+    {
+        $this->statement = $this->databaseHandler->prepare($query);
+    }
+
+    public function execute()
+    {
         $this->statement->execute();
     }
 
-    public function resultSet(){
+    public function resultSet()
+    {
         $this->execute();
         return $this->statement->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public function single(){
+    public function single()
+    {
         $this->execute();
         return $this->statement->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function rowCount(){
+    public function rowCount()
+    {
         return $this->statement->rowCount();
     }
 }
