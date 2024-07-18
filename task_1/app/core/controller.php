@@ -1,5 +1,7 @@
 <?php 
 
+namespace App\Core;
+
 class Controller{
     public function view($view, $data = [])
     {
@@ -7,8 +9,8 @@ class Controller{
     }
 
     public function model($model){
-        require_once '../app/models/'. $model .'.php';
-        return new $model;
+        $modelClass = 'App\\Models\\' . $model;
+        return new $modelClass();
     }
 }
 

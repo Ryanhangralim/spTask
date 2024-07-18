@@ -1,4 +1,10 @@
 <?php 
+namespace App\Controllers;
+
+use App\Core\Flasher;
+use App\Core\Controller;
+use App\Helpers\Redirect;
+
 
 class BulletinController extends Controller{
     public function index()

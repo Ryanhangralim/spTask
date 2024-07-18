@@ -1,4 +1,5 @@
 <?php 
+namespace App\Core;
 
 class App{
     protected $controller = 'BulletinController';
@@ -17,8 +18,8 @@ class App{
             }
         }   
 
-        require_once '../app/controllers/' . $this->controller . '.php';
-        $this->controller = new $this->controller;
+        $controllerClass = 'App\\Controllers\\' . $this->controller;
+        $this->controller = new $controllerClass;
 
         //method
         if (isset($url[1])){

@@ -54,7 +54,11 @@
 
 <div class="container">
     <form id="bulletinForm" action="<?= BASEURL ?>/BulletinController/add" method="POST">
-        <?php Flasher::flash(); ?>
+        <?php         
+        if ( isset($_SESSION["flash"])){
+            echo '<div class=' . $_SESSION['flash']['type'] . '>' . $_SESSION['flash']['message'] . '</div>';
+            unset($_SESSION["flash"]);
+        } ?>
         <textarea id="contentInput" name="content" placeholder="Must be filled in" required></textarea>
         <button type="submit" id="submitBtn">Submit</button>
     </form>
