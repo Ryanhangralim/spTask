@@ -2,6 +2,9 @@
 
 namespace App;
 
+use App\Core\Flasher;
+use App\Helpers\Redirect;
+
 class Router{
     protected $routes = [];
 
@@ -27,7 +30,8 @@ class Router{
                 call_user_func($callback);
             }
         } else {
-            echo "404 Not Found";
+            Flasher::setFlash('404 Not Found', 'error');
+            Redirect::to(BASEURL);
         }
     }
 }
