@@ -1,6 +1,6 @@
 <?php 
 
-define('BASEURL', 'http://localhost/spTask/task_1/public');
+define('BASEURL', 'http://sptask.test/');
 
 // database
 define('DB_HOST', 'localhost');

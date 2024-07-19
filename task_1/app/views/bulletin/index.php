@@ -53,7 +53,7 @@
 <body>
 
 <div class="container">
-    <form id="bulletinForm" action="<?= BASEURL ?>/BulletinController/add" method="POST">
+    <form id="bulletinForm" action="<?= BASEURL ?>add" method="POST">
         <?php         
         if ( isset($_SESSION["flash"])){
             echo '<div class=' . $_SESSION['flash']['type'] . '>' . $_SESSION['flash']['message'] . '</div>';

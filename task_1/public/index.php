@@ -9,5 +9,6 @@ if (!session_id()) {
 }
 
 $app = new App();
+$app->run();
 
 ?>

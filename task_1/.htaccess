@@ -1,5 +1,0 @@
-RewriteEngine On
-
-# Redirect root to public/index.php
-
-RewriteRule ^$ public/index.php [L]
