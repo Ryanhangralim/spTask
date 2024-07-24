@@ -2,9 +2,6 @@
 namespace App\Core;
 
 class App{
-    protected $controller = 'BulletinController';
-    protected $method = 'index';
-    protected $params = [];
     protected $router;
 
     function __construct()
