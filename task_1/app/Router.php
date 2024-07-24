@@ -2,22 +2,41 @@
 
 namespace App;
 
+use App\Core\FeatureManager;
 use App\Core\Flasher;
 use App\Helpers\Redirect;
 
 class Router{
     protected $routes = [];
+    protected $featureManager;
 
-    public function add($route, $callback, $method = 'GET')
+    public function __construct()
     {
-        $this->routes[$route][$method] = $callback;
+        $this->featureManager = new FeatureManager();
+    }
+
+    public function add($path, $callback, $method = 'GET', $feature = null)
+    {
+        $this->routes[$path][$method] = [
+            'callback' => $callback,
+            'feature' => $feature
+        ];
     }
 
     public function dispatch($url, $method = 'GET')
     {
         // Check if key exist in route
         if(isset($this->routes[$url][$method])){
-            $callback = $this->routes[$url][$method];
+            $route = $this->routes[$url][$method];
+            $callback = $route['callback'];
+            $feature = $route['feature'];
+
+            // Check if feature is not enabled
+            if($feature && !$this->featureManager->isFeatureEnabled($feature)){
+                Flasher::setFlash('Feature not available', 'error');
+                Redirect::to(BASEURL);
+                return;
+            }
 
             // check if callback is an array
             if (is_array($callback)){
