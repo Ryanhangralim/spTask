@@ -1,7 +1,7 @@
 <?php 
 namespace App\Core;
 
-class App{
+class Core{
     protected $router;
 
     function __construct()

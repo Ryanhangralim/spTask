@@ -1,15 +1,15 @@
 <?php 
 require_once '../vendor/autoload.php';
-require_once '../app/config/config.php';
+require_once '../app/config/app.php';
 require_once '../app/helpers.php';
 
-use App\Core\App;
+use App\Core\Core;
 
 if (!session_id()) {
     session_start();
 }
 
-$app = new App();
-$app->run();
+$core = new Core();
+$core->run();
 
 ?>
